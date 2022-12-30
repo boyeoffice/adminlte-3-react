@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "formulahendry.auto-close-tag",
+        "steoates.autoimport",
+        "EditorConfig.EditorConfig",
+        "paulshen.paul-typescript-toolkit",
+        "infeng.vscode-react-typescript"
+    ]
+}
