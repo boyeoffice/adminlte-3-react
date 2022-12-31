@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useWindowSize } from './hooks/useWindowSize';
 
 import Dashboard from './pages/Dashboard';
+import Main from './modules/Main';
 import { setWindowSize } from './store/reducers/ui';
 import { calculateWindowSize } from './utils/helpers';
 
@@ -23,7 +24,9 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/" element={<Main />}>
+          <Route path="/" element={<Dashboard />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );

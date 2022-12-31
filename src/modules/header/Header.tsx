@@ -2,11 +2,11 @@ import React, {useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
-import {toggleControlSidebar, toggleSidebarMenu} from '@app/store/reducers/ui';
-import MessagesDropdown from '@app/modules/main/header/messages-dropdown/MessagesDropdown';
-import NotificationsDropdown from '@app/modules/main/header/notifications-dropdown/NotificationsDropdown';
-import LanguagesDropdown from '@app/modules/main/header/languages-dropdown/LanguagesDropdown';
-import UserDropdown from '@app/modules/main/header/user-dropdown/UserDropdown';
+import {toggleControlSidebar, toggleSidebarMenu} from '../../store/reducers/ui';
+import MessagesDropdown from './messages-dropdown/MessagesDropdown';
+import NotificationsDropdown from './notifications-dropdown/NotificationsDropdown';
+import LanguagesDropdown from './languages-dropdown/LanguagesDropdown';
+import UserDropdown from './user-dropdown/UserDropdown';
 
 const Header = () => {
   const [t] = useTranslation();

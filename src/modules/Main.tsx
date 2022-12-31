@@ -1,14 +1,14 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {Outlet} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-// import {Gatekeeper} from 'gatekeeper-client-sdk';
-// import {loadUser, logoutUser} from '@store/reducers/auth';
+import {Gatekeeper} from 'gatekeeper-client-sdk';
+import {loadUser, logoutUser} from '../store/reducers/auth';
 import {toggleSidebarMenu} from '../store/reducers/ui';
 import {addWindowClass, removeWindowClass, sleep} from '../utils/helpers';
-import ControlSidebar from '@app/modules/main/control-sidebar/ControlSidebar';
-import Header from '@app/modules/main/header/Header';
-import MenuSidebar from '@app/modules/main/menu-sidebar/MenuSidebar';
-import Footer from '@app/modules/main/footer/Footer';
+import ControlSidebar from './control-sidebar/ControlSidebar';
+import Header from './header/Header';
+import MenuSidebar from './menu-sidebar/MenuSidebar';
+import Footer from './footer/Footer';
 import {PfImage} from '@profabric/react-components';
 
 const Main = () => {
@@ -28,12 +28,12 @@ const Main = () => {
 
   const fetchProfile = async () => {
     try {
-      const response = await Gatekeeper.getProfile();
-      dispatch(loadUser(response));
+      // const response = await Gatekeeper.getProfile();
+      // dispatch(loadUser(response));
       await sleep(1000);
       setIsAppLoaded(true);
     } catch (error) {
-      dispatch(logoutUser());
+      // dispatch(logoutUser());
       await sleep(1000);
       setIsAppLoaded(true);
     }
@@ -78,7 +78,7 @@ const Main = () => {
     if (!isAppLoaded) {
       return (
         <div className="preloader flex-column justify-content-center align-items-center">
-          <img
+          <PfImage
             className="animation__shake"
             src="/img/logo.png"
             alt="AdminLTELogo"
