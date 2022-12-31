@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export interface SmallBoxProps {
-  type: 'info' | 'success' | 'warning' | 'danger';
+  type: string;
   icon?: string;
   count: number;
   title: string;
@@ -18,7 +18,7 @@ const SmallBox = ({
 }: SmallBoxProps) => {
 
   return (
-    <div className={`small-box bg-white`}>
+    <div className={`small-box bg-${type}`}>
       <div className="inner">
         <h3>{count}</h3>
         <p>{title}</p>
@@ -27,7 +27,7 @@ const SmallBox = ({
         <i className={`ion ${icon || 'ion-bag'}`} />
       </div>
       <Link to={navigateTo} className="small-box-footer">
-        <span className="mr-2">NAME HERE</span>
+        <span className="mr-2">More Info</span>
         <i className="fa fa-arrow-circle-right" />
       </Link>
     </div>

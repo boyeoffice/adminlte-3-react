@@ -1,7 +1,41 @@
 import React from 'react';
 import {ContentHeader, SmallBox} from '../components/index';
 
+export interface BoxItems {
+  type: string,
+  icon: string,
+  count: number,
+  navigateTo: string
+}
+
 const Dashboard = () => {
+  const boxItems = [
+    {
+      title: 'New Orders',
+      count: 150,
+      type: 'info',
+      icon: 'ion-bag'
+    },
+    {
+      title: 'Bounce Rate',
+      count: 53,
+      type: 'success',
+      icon: 'ion-stats-bars'
+    },
+    {
+      title: 'User Registrations',
+      count: 44,
+      type: 'warning',
+      icon: 'ion-person-add'
+    },
+    {
+      title: 'Unique Visitors',
+      count: 65,
+      type: 'danger',
+      icon: 'ion-pie-graph'
+    }
+  ];
+
   return (
     <div>
       <ContentHeader title="Dashboard" />
@@ -9,68 +43,22 @@ const Dashboard = () => {
       <section className="content">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-lg-3 col-6">
-              <div className="small-box bg-info">
-                <div className="inner">
-                  <h3>150</h3>
-
-                  <p>New Orders</p>
-                </div>
-                <div className="icon">
-                  <i className="ion ion-bag" />
-                </div>
-                <a href="/" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </a>
-              </div>
+            {boxItems.map((item: {
+              type: string,
+              icon: string,
+              title: string,
+              count: number
+            }, index) => (
+              <div className="col-lg-3 col-6" key={index}>
+              <SmallBox
+                type={item.type}
+                icon={item.icon}
+                title={item.title}
+                navigateTo="/"
+                count={150}
+              />
             </div>
-            <div className="col-lg-3 col-6">
-              <div className="small-box bg-success">
-                <div className="inner">
-                  <h3>
-                    53<sup style={{fontSize: '20px'}}>%</sup>
-                  </h3>
-
-                  <p>Bounce Rate</p>
-                </div>
-                <div className="icon">
-                  <i className="ion ion-stats-bars" />
-                </div>
-                <a href="/" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-6">
-              <div className="small-box bg-warning">
-                <div className="inner">
-                  <h3>44</h3>
-
-                  <p>User Registrations</p>
-                </div>
-                <div className="icon">
-                  <i className="ion ion-person-add" />
-                </div>
-                <a href="/" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-3 col-6">
-              <div className="small-box bg-danger">
-                <div className="inner">
-                  <h3>65</h3>
-
-                  <p>Unique Visitors</p>
-                </div>
-                <div className="icon">
-                  <i className="ion ion-pie-graph" />
-                </div>
-                <a href="/" className="small-box-footer">
-                  More info <i className="fas fa-arrow-circle-right" />
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
