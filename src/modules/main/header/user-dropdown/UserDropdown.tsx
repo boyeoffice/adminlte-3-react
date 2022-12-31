@@ -3,7 +3,7 @@ import {useNavigate, Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {DateTime} from 'luxon';
 import {useTranslation} from 'react-i18next';
-import {logoutUser} from '../../../store/reducers/auth';
+import {logoutUser} from '../../../../store/reducers/auth';
 import styled from 'styled-components';
 import {PfDropdown, PfImage} from '@profabric/react-components';
 

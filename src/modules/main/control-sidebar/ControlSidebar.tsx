@@ -13,14 +13,14 @@ import {
   toggleMenuChildIndent,
   toggleMenuItemFlat,
   toggleSidebarMenu
-} from '../../store/reducers/ui';
+} from '../../../store/reducers/ui';
 import {
   NAVBAR_DARK_VARIANTS,
   NAVBAR_LIGHT_VARIANTS,
   SIDEBAR_DARK_SKINS,
   SIDEBAR_LIGHT_SKINS
-} from '../../utils/themes';
-import useScrollPosition from '../../hooks/useScrollPosition';
+} from '../../../utils/themes';
+import useScrollPosition from '../../../hooks/useScrollPosition';
 import {PfCheckbox, PfSelect} from '@profabric/react-components';
 
 const ControlSidebar = () => {

@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
-import {toggleControlSidebar, toggleSidebarMenu} from '../../store/reducers/ui';
+import {toggleControlSidebar, toggleSidebarMenu} from '../../../store/reducers/ui';
 import MessagesDropdown from './messages-dropdown/MessagesDropdown';
 import NotificationsDropdown from './notifications-dropdown/NotificationsDropdown';
 import LanguagesDropdown from './languages-dropdown/LanguagesDropdown';

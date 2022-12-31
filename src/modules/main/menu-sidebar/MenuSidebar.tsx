@@ -1,11 +1,11 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {MenuItem} from '../../components';
+import {MenuItem} from '../../../components';
 import {PfImage} from '@profabric/react-components';
 import styled from 'styled-components';
 // import {SidebarSearch} from '@app/components/sidebar-search/SidebarSearch';
-import i18n from '../../utils/i18n';
+import i18n from '../../../utils/i18n';
 
 export interface IMenuItem {
   name: string;

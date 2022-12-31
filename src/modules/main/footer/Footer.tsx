@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {DateTime} from 'luxon';
-import packageJSON from '../../../package.json';
+import packageJSON from '../../../../package.json';
 
 const Footer = () => {
   const [t] = useTranslation();
