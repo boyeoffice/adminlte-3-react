@@ -1,10 +1,14 @@
 import React from 'react';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {useTranslation} from 'react-i18next';
+import {Form, InputGroup} from 'react-bootstrap';
 
 import { setWindowClass } from '../../utils/helpers';
 
 const Login = () => {
+
+  const [t] = useTranslation();
 
   const login = (email: string, password: string) => {
     console.log({email: email, password: password})
@@ -36,10 +40,10 @@ const Login = () => {
         </div>
         <div className="card">
           <div className="card-body login-card-body">
-            <p className="login-box-msg">Sign in to start your session</p>
+          <p className="login-box-msg">{t<string>('login.label.signIn')}</p>
             <form onSubmit={handleSubmit}>
-              <div className="form-group input-group mb-3">
-                <input
+              <InputGroup className="mb-3">
+                <Form.Control
                   id="email"
                   name="email"
                   type="email"
@@ -47,15 +51,23 @@ const Login = () => {
                   placeholder="Email"
                   onChange={handleChange}
                   value={values.email}
+                  isValid={touched.email && !errors.email}
+                  isInvalid={touched.email && !!errors.email}
                 />
-                <div className="input-group-append">
-                  <div className="input-group-text">
-                    <span className="fas fa-envelope"></span>
-                </div>
-              </div>
-              </div>
-              <div className="input-group mb-3">
-                <input
+                {touched.email && errors.email ? (
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
+                ) : (
+                  <div className="input-group-append">
+                    <div className="input-group-text">
+                      <span className="fas fa-envelope"></span>
+                    </div>
+                  </div>
+                )}
+              </InputGroup>
+              <InputGroup className="mb-3">
+                <Form.Control
                   id="password"
                   name="password"
                   type="password"
@@ -63,13 +75,15 @@ const Login = () => {
                   placeholder="Password"
                   onChange={handleChange}
                   value={values.password}
+                  isValid={touched.email && !errors.email}
+                  isInvalid={touched.email && !!errors.email}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
                     <span className="fas fa-lock"></span>
                 </div>
               </div>
-                  </div>
+              </InputGroup>
                   <div className="social-auth-links text-center mb-3">
                   <button type="submit" className="btn btn-block btn-danger">Login</button>
                     </div>
